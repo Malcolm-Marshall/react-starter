@@ -1,0 +1,23 @@
+body {
+  background-color: powderblue;
+}
+form {
+  border-radius: 1px;
+  background: powderblue;
+}
+.button1 {
+  height: 20px;
+  width: 20px;
+}
+
+/* .search-bar .form-control {
+  border-radius: 2px;
+  width: 80%
+}
+.search-bar .btn {
+  border-radius: 2px;
+  border-color: #d3d3d3;
+  background: #f8f8f8;
+  width: 20%;
+  margin-left: -1px;
+} */
