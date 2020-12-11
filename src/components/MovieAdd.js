@@ -5,27 +5,30 @@ class MovieAdd extends Component {
     super(props);
 
     this.state = {
-      addValue: ""
+      movie: ""
     }
 
     this.handleInput = this.handleInput.bind(this);
   }
 
   handleInput(event) {
-    this.setState({addValue: event.target.value});
+    this.setState({movie: event.target.value});
   }
 
   render() {
     return (
-      <div>
-        <input
-        type= "text"
-        placeholder= "Add a movie to your list!"
-        value= {this.state.addValue}
-        onChange= {this.handleInput}/>
+      <form>
+        <div>
+          <input
+          type= "text"
+          placeholder= "Add a movie to your list!"
+          value= {this.state.movie}
+          onChange= {this.handleInput}/>
 
-        <button class="addButton" text="Add" onClick={(event) => this.props.addMovie(event, this.state.addValue)}>Add</button>
-      </div>
+          <button class="addButton" text="Add" onClick={(event) => this.props.addMovie(event, this.state.movie)}>Add</button>
+        </div>
+      </form>
+
     )
   }
 }

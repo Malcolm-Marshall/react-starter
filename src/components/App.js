@@ -18,25 +18,30 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      searchResults: movies
+      searchResults: [],
+      allMovies: []
     }
     this.movieSearch = this.movieSearch.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
 
   //function to pass to state to search for movies(props)
 
  movieSearch(search) {
-  let results = movies.filter(movie => {
+  let results = this.allMovies.filter(movie => {
     return movie.title.toLowerCase().indexOf(search.toLowerCase()) >= 0}
   );
   this.setState({searchResults: results});
-  console.log(search)
 }
 
-addMovie(toAdd) {
-  console.log('test')
-  this.setState({searchResults: toAdd});
+addMovie(event, movie) {
+  event.preventDefault();
+  // this.setState({searchResults: this.state.searchResults.slice().push(searchResults), allMovies: this.state.allMovies.slice().push(allMovies)});
+  this.setState({
+    allMovies: [...this.state.allMovies, {title: movie}],
+    searchResults: [...this.state.searchResults, {title: movie}]
+  });
 }
 
   render(){
@@ -44,7 +49,7 @@ addMovie(toAdd) {
 
     <div>
       <MovieAdd addMovie= {this.addMovie}/>
-      <Search movies= {movies} movieSearch= {this.movieSearch}/>
+      <Search movies= {this.state.allMovies} movieSearch= {this.movieSearch}/>
       <MovieList movies= {this.state.searchResults}/>
     </div>
   )}
