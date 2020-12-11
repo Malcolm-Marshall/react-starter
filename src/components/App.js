@@ -2,6 +2,7 @@ import React from 'react';
 import MovieList from './MovieList.js';
 import Css from '../main.css'
 import Search from './Search.js'
+import MovieAdd from './MovieAdd.js'
 
 var movies = [
   {title: 'Mean Girls'},
@@ -30,14 +31,21 @@ class App extends React.Component {
     return movie.title.toLowerCase().indexOf(search.toLowerCase()) >= 0}
   );
   this.setState({searchResults: results});
+  console.log(search)
+}
+
+addMovie(toAdd) {
+  console.log('test')
+  this.setState({searchResults: toAdd});
 }
 
   render(){
     return(
 
     <div>
+      <MovieAdd addMovie= {this.addMovie}/>
       <Search movies= {movies} movieSearch= {this.movieSearch}/>
-      <MovieList moviesList= {this.state.searchResults}/>
+      <MovieList movies= {this.state.searchResults}/>
     </div>
   )}
 }

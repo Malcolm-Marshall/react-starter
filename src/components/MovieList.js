@@ -1,13 +1,13 @@
 import React from 'react';
+import Movie from './MovieTitle'
 var MovieList = (props) => {
+
+  var message = props.movies.length === 0 ? "Movie not in this list. Try again!" : "";
 
     return(
     <div>
-      <h3>{props.moviesList[0].title}</h3>
-      <h3>{props.moviesList[1].title}</h3>
-      <h3>{props.moviesList[2].title}</h3>
-      <h3>{props.moviesList[3].title}</h3>
-      <h3>{props.moviesList[4].title}</h3>
+     {message}
+     {props.movies.map((movie, i) => <Movie movie= {movie} key= {i} />)}
     </div>
   )
 }

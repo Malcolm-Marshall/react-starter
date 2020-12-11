@@ -5,9 +5,14 @@ form {
   border-radius: 1px;
   background: powderblue;
 }
-.button1 {
+.button {
   height: 20px;
-  width: 20px;
+  width: 60px;
+}
+.addButton {
+  height: 20px;
+  width: 60px;
+  background-color: green;
 }
 
 /* .search-bar .form-control {
